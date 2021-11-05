@@ -25,9 +25,9 @@ public class MFTokenNotifyRunner implements ApplicationRunner {
     private final EthFilter transferFilter;
 
     @Autowired
-    public MFTokenNotifyRunner(Web3j web3j, EthFilter uploadProAuth) {
+    public MFTokenNotifyRunner(Web3j web3j, EthFilter transferFilter) {
         this.web3j = web3j;
-        this.transferFilter = uploadProAuth;
+        this.transferFilter = transferFilter;
     }
 
     @Override
@@ -43,17 +43,15 @@ public class MFTokenNotifyRunner implements ApplicationRunner {
 
         log.info("启动监听Transfer事件");
         web3j.ethLogFlowable(transferFilter)
-                .map(e -> {
+                .subscribe(e -> {
                     EventValues eventValues = staticExtractEventParameters(TRANSFER_EVENT, e);
                     MFToken.TransferEventResponse data = new MFToken.TransferEventResponse();
                     data.log = e;
                     data._from = (String) eventValues.getIndexedValues().get(0).getValue();
                     data._to = (String) eventValues.getIndexedValues().get(1).getValue();
                     data._value = (BigInteger) eventValues.getNonIndexedValues().get(0).getValue();
-                    return data;
-                })
-                .forEach(this::processTransferEvent)
-                .wait();
+                    processTransferEvent(data);
+                });
     }
 
     private void processTransferEvent(MFToken.TransferEventResponse data) {

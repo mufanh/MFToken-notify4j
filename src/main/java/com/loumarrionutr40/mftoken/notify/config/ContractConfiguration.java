@@ -51,7 +51,7 @@ public class ContractConfiguration {
     //监听这里才用每次都生成一个新的对象，因为同时监听多个事件不能使用同一个实例
     @Scope("prototype")
     @Bean
-    public EthFilter ethFilter(MFToken mftoken, Web3j web3j) throws IOException {
+    public EthFilter transferFilter(MFToken mftoken, Web3j web3j) throws IOException {
         // 获取启动时监听的区块
         Request<?, EthBlockNumber> request = web3j.ethBlockNumber();
         return new EthFilter(DefaultBlockParameter.valueOf(request.send().getBlockNumber()),
