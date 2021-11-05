@@ -30,7 +30,7 @@ public class ContractConfiguration {
     }
 
     @Bean
-    public MFToken trace(Web3j web3j, ContractConfig contractConfig) throws IOException {
+    public MFToken mftoken(Web3j web3j, ContractConfig contractConfig) throws IOException {
         MFToken contract;
         try {
             Web3ClientVersion web3ClientVersion = web3j.web3ClientVersion().send();
