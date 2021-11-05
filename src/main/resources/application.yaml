@@ -1,0 +1,10 @@
+server:
+  port: ${server_port:8080}
+
+contract:
+  address: ${contract_address:0x0737719ffF42CdDd2c1e93c95ac90A8C3C23e24F}
+  url: ${contract_url:https://data-seed-prebsc-1-s1.binance.org:8545/}
+  senderAddress: ${contract_sender_address:0x1619AE46033FDbc5dF304792882aCb70507c0817}
+spring:
+  profiles:
+    active: local
