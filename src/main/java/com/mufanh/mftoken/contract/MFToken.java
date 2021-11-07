@@ -1,4 +1,4 @@
-package com.loumarrionutr40.mftoken.contract;
+package com.mufanh.mftoken.contract;
 
 import io.reactivex.Flowable;
 import java.math.BigInteger;

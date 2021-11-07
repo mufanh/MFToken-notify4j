@@ -8,10 +8,10 @@
         <version>2.5.2</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.loumarrionutr40.mftoken.notify</groupId>
-    <artifactId>mftoken-notify</artifactId>
+    <groupId>com.mufanh.mftoken.notify</groupId>
+    <artifactId>MFToken-notify4j</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>mftoken-notify</name>
+    <name>MFToken-notify4j</name>
     <description>监听MFToken合约事件</description>
 
     <properties>
@@ -87,7 +87,7 @@
                 <artifactId>web3j-maven-plugin</artifactId>
                 <version>4.6.5</version>
                 <configuration>
-                    <packageName>com.loumarrionutr40.mftoken.contract</packageName>
+                    <packageName>com.mufanh.mftoken.contract</packageName>
                     <sourceDestination>src/main/java</sourceDestination>
                     <nativeJavaType>true</nativeJavaType>
                     <outputFormat>java</outputFormat>

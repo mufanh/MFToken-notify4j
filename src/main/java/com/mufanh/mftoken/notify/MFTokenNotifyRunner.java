@@ -1,6 +1,6 @@
-package com.loumarrionutr40.mftoken.notify;
+package com.mufanh.mftoken.notify;
 
-import com.loumarrionutr40.mftoken.contract.MFToken;
+import com.mufanh.mftoken.contract.MFToken;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.ApplicationArguments;
@@ -12,7 +12,7 @@ import org.web3j.protocol.Web3j;
 import org.web3j.protocol.core.methods.request.EthFilter;
 
 import java.math.BigInteger;
-import static com.loumarrionutr40.mftoken.contract.MFToken.TRANSFER_EVENT;
+
 import static org.web3j.tx.Contract.staticExtractEventParameters;
 
 @Component
@@ -39,12 +39,12 @@ public class MFTokenNotifyRunner implements ApplicationRunner {
      * 收到上链事件
      */
     private void processTransferEvent() throws InterruptedException {
-        transferFilter.addSingleTopic(EventEncoder.encode(TRANSFER_EVENT));
+        transferFilter.addSingleTopic(EventEncoder.encode(MFToken.TRANSFER_EVENT));
 
         log.info("启动监听Transfer事件");
         web3j.ethLogFlowable(transferFilter)
                 .subscribe(e -> {
-                    EventValues eventValues = staticExtractEventParameters(TRANSFER_EVENT, e);
+                    EventValues eventValues = staticExtractEventParameters(MFToken.TRANSFER_EVENT, e);
                     MFToken.TransferEventResponse data = new MFToken.TransferEventResponse();
                     data.log = e;
                     data._from = (String) eventValues.getIndexedValues().get(0).getValue();

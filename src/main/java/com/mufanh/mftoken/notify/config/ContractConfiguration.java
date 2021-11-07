@@ -1,6 +1,6 @@
-package com.loumarrionutr40.mftoken.notify.config;
+package com.mufanh.mftoken.notify.config;
 
-import com.loumarrionutr40.mftoken.contract.MFToken;
+import com.mufanh.mftoken.contract.MFToken;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

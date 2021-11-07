@@ -1,4 +1,4 @@
-package com.loumarrionutr40.mftoken.notify;
+package com.mufanh.mftoken.notify;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

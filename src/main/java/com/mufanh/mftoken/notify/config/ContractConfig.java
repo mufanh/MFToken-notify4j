@@ -1,4 +1,4 @@
-package com.loumarrionutr40.mftoken.notify.config;
+package com.mufanh.mftoken.notify.config;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
